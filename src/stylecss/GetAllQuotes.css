@@ -1,0 +1,15 @@
+.ScrollBox
+{
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.QuoteShowOnClick
+{
+    min-height: 150px;
+}
+
+.QuoteDetailBox
+{
+    min-height: 200px;
+}

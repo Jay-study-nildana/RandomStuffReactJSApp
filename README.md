@@ -1,34 +1,21 @@
-# Random Stuff React JS App
+# React JS App - ZeroPointTwoPointZero
 
-react JS app that consumes that random stuff api server.
+This is the app for this version. 
 
-# Theme Used
+Check vesion log of ZeroPointTwoPointZero to see what this app aims to achieve.
 
-* This app uses the free [Paper Kit React](https://github.com/creativetimofficial/paper-kit-react) theme.
-* Go Here for the [default](READMEOfCreateReact.md) readme that came with this theme.
+# initial setup
 
-# live demo and apps
+Auth0 Provides a ready to use react JS template which already has bundled in with their Auth0 React SDK. 
 
-* Try out the [React JS Web App - Stable Version](https://randomstuffreactjsappsept24.azurewebsites.net)
-* Try out the [React JS Web App - Latest Version](https://randomstuffreactjsappsept24.azurewebsites.net)
+Ready to use templates use best practices including project setup and configuration. Good to build off their efforts.
 
-# API Server
+# Default Readme.
 
-* GitHub repo of API Server consumed by this app is [available here](https://github.com/Jay-study-nildana/RandomStuffGenerator).
-
-# running instructions - local computer
-
-* npm start
-* visit http://localhost:3000/
-
-# deployment notes
-
-* check the detailed notes available at [ReactJSRecipeApp](https://github.com/Jay-study-nildana/ReactJSRecipeApp)
+This template came with a default readme. It has essential information, and the readme is available [here](defaultREADME.md).
 
 # important note 
 
-This code is provided as is without any warranties. It's primarily meant for our own use. Feel free to use this code as it pleases you.
+This code is provided as is without any warranties. It's primarily meant for my own personal use, and to make it easy for me share code with my students. Feel free to use this code as it pleases you.
 
-# About
-
-Owner and Developer of this project - [Jay](http://thechalakas.com)
+I can be reached through my website - http://thechalakas.com/

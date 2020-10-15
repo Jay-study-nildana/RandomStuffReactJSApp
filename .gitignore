@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# by default, the auth template, does not commit config file
+# i have my own setup for hiding secrets like auth settings so dont need this
+# auth_config.json

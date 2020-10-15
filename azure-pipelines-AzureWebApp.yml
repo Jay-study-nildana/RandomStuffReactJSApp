@@ -1,0 +1,78 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+# This works just fine. but it has the problem, described in this stack question
+# https://stackoverflow.com/questions/64060317/azure-devops-first-time-web-app-deployment-always-gives-error
+
+# essentially, AzureWebApp@1, has this issue where the very first deployment to a web app fails
+# but only the first deployment. successive deployments, no problem whatsoever.
+
+# look at azure-pipelines-AzureRMWebAppDeployment.yml for a improved pipeline.
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+# here, we are copying the output files to a folder
+# this folder will be our source for all future manipulations
+# like artifact building, zipping and other file operations
+
+- task: CopyFiles@2
+  inputs:
+    Contents: 'build/**' # Pull the build directory (React)
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+# this is building an artificant
+# this is primarily used for file storage options
+# see the output from pipelines and so on
+# this oes not do anything to the actual deployment
+
+- task: PublishBuildArtifacts@1
+  inputs: 
+    pathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
+    ArtifactName: 'www' # output artifact named www
+
+# Default value: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+# this is the actual step before deployment
+# so, the thing is, CICD depends on a zipped file for deployments
+# so our output folder must be in zip before it can be sent away for deployment
+
+# here, in the staging directory, there is a folder called build
+# the inside of build contains all of our deployment files
+# that is why, we are setting the zip to happen on the contents of build folder
+# not the build folder itself.
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/build/'
+    includeRootFolder: false
+
+# here, is where, we send off the zip files to perform a deployment to where we want.
+# the main thing is the target web app
+# and authenticating to access the file system of the web app
+
+# I am using what is called as a service connection available in the project
+# inside the devops organization
+
+# triggering deployment again.
+# everytime I do this deployment, the first time, never goes through.
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'RandomStuffReactJSConnection'
+    appName: 'RandomStuffReactJSAppSept24'
+    package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'      
