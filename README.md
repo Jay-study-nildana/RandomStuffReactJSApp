@@ -1,18 +1,16 @@
-# React JS App - ZeroPointTwoPointZero
+# Random Stuff React JS App
 
-This is the app for this version. 
+Find the latest documentation of the app here - https://github.com/Jay-study-nildana/RandomStuffDocs/tree/main/ReactJSApp
 
-Check vesion log of ZeroPointTwoPointZero to see what this app aims to achieve.
+Find the documentation for this specific version here - https://github.com/Jay-study-nildana/RandomStuffDocs/tree/ZeroPointTwoPointZero/ReactJSApp
 
-# initial setup
+Find the documentation for the entire project here - https://github.com/Jay-study-nildana/RandomStuffDocs
 
-Auth0 Provides a ready to use react JS template which already has bundled in with their Auth0 React SDK. 
+# Version Changes
 
-Ready to use templates use best practices including project setup and configuration. Good to build off their efforts.
+Current Version is 0.2.0
 
-# Default Readme.
-
-This template came with a default readme. It has essential information, and the readme is available [here](defaultREADME.md).
+available here - https://github.com/Jay-study-nildana/RandomStuffDocs/blob/ZeroPointTwoPointZero/VersionandChanges.md
 
 # important note 
 
