@@ -6,17 +6,23 @@ import React, { Fragment } from "react";
 import UserRole from "./RolesandLinksComponents/UserRole";
 import ModeratorRole from "./RolesandLinksComponents/ModeratorRole";
 import AdminRole from "./RolesandLinksComponents/AdminRole";
-import Claims from "./RolesandLinksComponents/Claims";
+// import Claims from "./RolesandLinksComponents/Claims";
 
+//TODO not sure what to do with Claims. Keep it. move it around.
 
+//TODO anyway, we can graceful show the results of the API call
+//right now, the default sentence just gets abruptly overwritten once 
+//API call returns.
+
+//I have switched off ModeratorRole and AdminRole
 const RolesandLinks = () => (
 
     <Fragment>
         <UserRole />
         <ModeratorRole />
         <AdminRole />
-        <Claims />
-    </Fragment>    
+        {/* <Claims /> */}
+    </Fragment>
 );
 
 export default RolesandLinks;

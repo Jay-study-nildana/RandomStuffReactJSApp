@@ -8,6 +8,7 @@ import config from "./auth_config.json";
 import history from "./utils/history";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// @ts-ignore
 const onRedirectCallback = (appState) => {
   history.push(
     appState && appState.returnTo
@@ -23,7 +24,7 @@ ReactDOM.render(
     audience={config.audience}
     redirectUri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
-    scope = {config.scope}
+    scope={config.scope}
   >
     <App />
   </Auth0Provider>,

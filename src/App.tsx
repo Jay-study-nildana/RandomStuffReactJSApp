@@ -10,7 +10,8 @@ import Profile from "./views/Profile";
 import ExternalApi from "./views/ExternalApi";
 import MyQuotes from "./views/MyQuotes";
 import About from "./views/About";
-import GetAllQuotes from "./views/GetAllQuotes";
+import QuoteHQ from "./views/QuoteHQ";
+import AddOrUpdateQuote from "./views/AddOrUpdateQuote";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 
@@ -43,7 +44,8 @@ const App = () => {
             <Route path="/external-api" component={ExternalApi} />
             <Route path="/my-quotes" component={MyQuotes} />
             <Route path="/about" component={About} />
-            <Route path="/get-all-quotes" component={GetAllQuotes} />
+            <Route path="/quotehq" component={QuoteHQ} />
+            <Route path="/addorupdatedquote" component={AddOrUpdateQuote} />
           </Switch>
         </Container>
         <Footer />

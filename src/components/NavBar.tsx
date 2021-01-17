@@ -79,7 +79,7 @@ const NavBar = () => {
                     My Quotes
                   </NavLink>
                 </NavItem>
-              )} 
+              )}
               {showlink && (
                 <NavItem>
                   <NavLink
@@ -91,7 +91,17 @@ const NavBar = () => {
                     My Quotes
                   </NavLink>
                 </NavItem>
-              )}              
+              )}
+              <NavItem>
+                <NavLink
+                  tag={RouterNavLink}
+                  to="/quotehq"
+                  exact
+                  activeClassName="router-link-exact-active"
+                >
+                  quotehq
+                </NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink
                   tag={RouterNavLink}
@@ -101,7 +111,7 @@ const NavBar = () => {
                 >
                   About
                 </NavLink>
-              </NavItem>                           
+              </NavItem>
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

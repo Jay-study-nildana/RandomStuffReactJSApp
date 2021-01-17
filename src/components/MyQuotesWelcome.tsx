@@ -10,7 +10,7 @@ const MyQuotesWelcome = () => (
   <Fragment>
       <div>
         <h4>your quotes</h4>
-        <p>Depending on your user level, you will have different options available below</p>
+        <p>Your user levels will be shown here.</p>
     </div>
     <hr />
     <RolesandLinks />

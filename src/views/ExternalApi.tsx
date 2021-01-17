@@ -1,15 +1,16 @@
-//file based on ExternalApi.js
-
 import React, { useState } from "react";
-import {  Alert } from "reactstrap";
-import MyQuotesWelcome from "../components/MyQuotesWelcome";
+import { Button, Alert } from "reactstrap";
+import Highlight from "../components/Highlight";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import config from "../auth_config.json";
 import Loading from "../components/Loading";
 
-const { apiOrigin = "https://randomstuffgeneratorsep23.azurewebsites.net" } = config;
+// @ts-ignore
+const { apiOrigin = "https://localhost:44372" } = config;
 
-export const MyQuotes = () => {
+// const { apiOrigin = "http://localhost:3001" } = config;
+
+export const ExternalApiComponent = () => {
   const [state, setState] = useState({
     showResult: false,
     apiMessage: "",
@@ -87,6 +88,7 @@ export const MyQuotes = () => {
     }
   };
 
+  // @ts-ignore
   const handle = (e, fn) => {
     e.preventDefault();
     fn();
@@ -100,10 +102,10 @@ export const MyQuotes = () => {
             You need to{" "}
             <a
               href="#/"
-              class="alert-link"
+              
               onClick={(e) => handle(e, handleConsent)}
             >
-              consent to get access to my quotes
+              consent to get access to users api
             </a>
           </Alert>
         )}
@@ -113,19 +115,40 @@ export const MyQuotes = () => {
             You need to{" "}
             <a
               href="#/"
-              class="alert-link"
+              
               onClick={(e) => handle(e, handleLoginAgain)}
             >
               log in again
             </a>
           </Alert>
         )}
-        <MyQuotesWelcome />
+
+        <h1>External API </h1>
+        <p>
+          Ping an external API by clicking the button below. This will call the
+          external API using an access token, and the API will validate it using
+          the API's audience value.
+        </p>
+
+        <Button color="primary" className="mt-5" onClick={callApi}>
+          Ping API
+        </Button>
+      </div>
+
+      <div className="result-block-container">
+        {state.showResult && (
+          <div className="result-block" data-testid="api-result">
+            <h6 className="muted">Result</h6>
+            <Highlight>
+              <span>{JSON.stringify(state.apiMessage, null, 2)}</span>
+            </Highlight>
+          </div>
+        )}
       </div>
     </>
   );
 };
 
-export default withAuthenticationRequired(MyQuotes, {
+export default withAuthenticationRequired(ExternalApiComponent, {
   onRedirecting: () => <Loading />,
 });

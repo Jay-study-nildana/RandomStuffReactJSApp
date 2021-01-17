@@ -1,19 +1,17 @@
 //file based on ExternalApi.js
 
 import React, { useState } from "react";
-import {  Alert } from "reactstrap";
+import { Alert } from "reactstrap";
 import MyQuotesWelcome from "../components/MyQuotesWelcome";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import config from "../auth_config.json";
 import Loading from "../components/Loading";
-import GetAllQuotesWelcome from "../components/GetAllQuotesComponents/GetAllQuotesWelcome";
-import GetAllQuotesList from "../components/GetAllQuotesComponents/GetAllQuotesList";
 
+//TODO - this must come from a config file.
+// @ts-ignore
+const { apiOrigin = "https://localhost:44372" } = config;
 
-
-const { apiOrigin = "https://randomstuffgeneratorsep23.azurewebsites.net" } = config;
-
-export const GetAllQuotes = () => {
+export const MyQuotes = () => {
   const [state, setState] = useState({
     showResult: false,
     apiMessage: "",
@@ -57,6 +55,8 @@ export const GetAllQuotes = () => {
       });
     }
 
+    //TODO - investigate if we really need this
+    //since, as of version 0.3.0, I have decided no longer to display claims to user
     await callApi();
   };
 
@@ -74,7 +74,7 @@ export const GetAllQuotes = () => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });      
+      });
 
       const responseData = await response.json();
 
@@ -91,6 +91,7 @@ export const GetAllQuotes = () => {
     }
   };
 
+  // @ts-ignore
   const handle = (e, fn) => {
     e.preventDefault();
     fn();
@@ -104,7 +105,7 @@ export const GetAllQuotes = () => {
             You need to{" "}
             <a
               href="#/"
-              class="alert-link"
+
               onClick={(e) => handle(e, handleConsent)}
             >
               consent to get access to my quotes
@@ -117,20 +118,19 @@ export const GetAllQuotes = () => {
             You need to{" "}
             <a
               href="#/"
-              class="alert-link"
+
               onClick={(e) => handle(e, handleLoginAgain)}
             >
               log in again
             </a>
           </Alert>
         )}
-        <GetAllQuotesWelcome />
-        <GetAllQuotesList />
+        <MyQuotesWelcome />
       </div>
     </>
   );
 };
 
-export default withAuthenticationRequired(GetAllQuotes, {
+export default withAuthenticationRequired(MyQuotes, {
   onRedirecting: () => <Loading />,
 });
