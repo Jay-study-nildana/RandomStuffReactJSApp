@@ -2,6 +2,8 @@ import React, { useState, Fragment } from "react";
 import { Alert, Button } from "reactstrap";
 import Fetch from "../NetworkComponents/Fetch";
 
+const apiConfig = require("../../api_config.json");
+
 //TODO - is there a better solution for this, then forcing a trigger based on 
 //forcing triggerapi to change? find out.
 
@@ -97,7 +99,9 @@ interface QuoteDetailsProps {
 //the third level is the useFetch which actually makes the raw web call
 function RandomQuoteHelper({ triggerapi }: RandomQuoteHelperProps) {
   //TODO - these things should be coming from a config file
-  const baseURL = "https://localhost:44372";
+  // const baseURL = "https://localhost:44372";
+  //apiConfig
+  const baseURL = apiConfig.baseURL;
   const endPoint = "/api/UserNotLoggedIn/GetHoldOfthem";
   var url2 = baseURL + endPoint;
   //manually set the request type

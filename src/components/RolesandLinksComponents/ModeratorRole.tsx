@@ -6,6 +6,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Fetch from "../NetworkComponents/Fetch";
 
+const apiConfig = require("../../api_config.json");
+
 export interface StandardAPIData {
   listOfResponses: string[];
   dateTimeOfResponse: Date;
@@ -21,7 +23,8 @@ interface StandardAPIProps {
 function DisplayHelper({ token }) {
   console.log("inside DisplayHelper");
   //TODO - these things should be coming from a config file
-  const baseURL = "https://localhost:44372";
+  // const baseURL = "https://localhost:44372";
+  const baseURL = apiConfig.baseURL;
   const endPoint = "/api/Moderator/Hi";
   const url2 = baseURL + endPoint;
   const something = "authorized";

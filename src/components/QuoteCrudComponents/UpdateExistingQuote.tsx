@@ -4,6 +4,8 @@ import Fetch from "../NetworkComponents/Fetch";
 import { Input } from 'reactstrap';
 import { Button } from 'reactstrap';
 
+const apiConfig = require("../../api_config.json");
+
 //note - this was built using GenerateUserAddedQuote as a template.
 //a full page copy paste job.
 //so some code from that might stil be present, unused or just commented out.
@@ -37,7 +39,8 @@ function DisplayHelper({ token, triggerapi, readytoroll, authorname, quotestring
     console.log("inside DisplayHelper - triggerapi " + triggerapi);
     console.log("inside DisplayHelper - readytoroll " + readytoroll);
     //TODO - these things should be coming from a config file
-    const baseURL = "https://localhost:44372";
+    // const baseURL = "https://localhost:44372";
+    const baseURL = apiConfig.baseURL;
     const endPoint = "/api/Moderator/UpdateExistingQuote";
     const url2 = baseURL + endPoint;
     const something = "authorized";

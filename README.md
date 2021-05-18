@@ -4,9 +4,15 @@ This is the companion React JS App for the Random Stuff API Server.
 
 Find the documentation of the [app here](https://jay-study-nildana.github.io/RandomStuffDocs/ReactJSApp/)
 
-Find the documentation for the [entire project here](https://jay-study-nildana.github.io/RandomStuffDocs/)
+Find the documentation, student notes and deployments for the [entire project here](https://jay-study-nildana.github.io/RandomStuffDocs/)
 
 Thank you.
+
+# Before Running The Project
+
+1. Check file api_config.json, and update it with the Random Stuff API server localhost or deployment server. Otherwise, the app will no random stuff quotes api server to consume.
+1. Check file auth_config.json, and update it to match the authentication details used in the api server with respect to Auth0 settings. Without this, the login wont work. The auth based things will not work. But, home page will work.
+1. this template was borrowed from Auth0 folks. So, it has a dummy api server as well. The focus is only on the web app. so, please use 'npm run-script spa'
 
 # TypeScript
 
@@ -38,6 +44,10 @@ These are files that contain some detailed notes and comments.
 
 * keep console open - As always, dear student, please check console for plenty of console line outputs to help you understand flow of logic and code.
 * when investigating network calls, ensure that, "Start Time" is one of the columns, and is sorted in increasting time. Plenty of times, I got stuck becuase, I thought I was not making any network calls even though all evidence suggestd otherwise. It's funny but frustrating until you realize this was happening.
+
+# Hire Me
+
+I work as a full time freelance software developer and coding tutor. Hire me at [UpWork](https://www.upwork.com/fl/vijayasimhabr) or [Fiverr](https://www.fiverr.com/jay_codeguy). 
 
 # important note 
 

@@ -1,6 +1,6 @@
 {
-  "domain": "",
+  "domain": ".us.auth0.com",
   "clientId": "",
-  "audience": "",
+  "audience": "https://.com",
   "scope":"read:current_user update:current_user_metadata read:capquotes read:penquotes read:profiledetails read:seeallquotes read:sitestats"      
 }

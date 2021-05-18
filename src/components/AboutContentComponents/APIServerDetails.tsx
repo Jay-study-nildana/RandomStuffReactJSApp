@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import Fetch from "../NetworkComponents/Fetch";
 import { FixedSizeList } from "react-window";
 
+const apiConfig = require("../../api_config.json");
+
 export interface StandardAPIData {
   listOfResponses: string[];
   dateTimeOfResponse: Date;
@@ -15,7 +17,8 @@ interface StandardAPIProps {
 
 function DisplayHelper() {
   //TODO - these things should be coming from a config file
-  const baseURL = "https://localhost:44372";
+  // const baseURL = "https://localhost:44372";
+  const baseURL = apiConfig.baseURL;
   const endPoint = "/api/ProjectDetails/Hi";
   var url2 = baseURL + endPoint;
 
